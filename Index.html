@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Food Menu – Tharu Sekuwa Ghar</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&family=Tiro+Devanagari+Hindi&display=swap">
+<style>
+:root{--bg:#1d1d1d;--panel:#262626;--ink:#f4efe6;--muted:#b9b2a6;--gold:#ffbd00;--line:#3a3a3a;color-scheme:dark;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:70px;scroll-behavior:smooth}
+body{margin:0;background:var(--bg) radial-gradient(circle at 50% -10%,#2f2f2f,var(--bg) 60%);color:var(--ink);font-family:Poppins,system-ui,sans-serif;line-height:1.5}
+header{text-align:center;padding:40px 20px 20px}
+h1{margin:0;font-size:clamp(2.2rem,9vw,3.6rem);font-weight:800;letter-spacing:.06em}
+.dev{font-family:"Tiro Devanagari Hindi",serif;color:var(--gold);font-size:clamp(1.3rem,5vw,1.8rem);margin:4px 0 0}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;gap:8px;overflow-x:auto;padding:10px 16px;background:#1d1d1def;border-bottom:1px solid var(--line)}
+nav a{flex:none;color:var(--ink);text-decoration:none;font-size:.85rem;font-weight:500;padding:6px 14px;border:1px solid var(--line);border-radius:99px}
+nav a:hover,nav a:focus-visible{background:var(--gold);color:#000;outline:none}
+main{max-width:720px;margin:0 auto;padding:12px 16px 40px}
+section{margin-top:28px}
+h2{display:inline-block;margin:0 0 10px;padding:6px 20px;background:var(--gold);color:#000;border-radius:6px;font-size:1.05rem;font-weight:700}
+.row{display:flex;justify-content:space-between;gap:16px;padding:9px 2px;border-bottom:1px dashed var(--line)}
+.row span:last-child{color:var(--gold);font-weight:500;white-space:nowrap}
+.note{margin:2px 2px 8px;color:var(--muted);font-size:.85rem}
+footer{text-align:center;padding:24px 16px 40px;color:var(--gold)}
+footer a{color:inherit;text-decoration:none;font-weight:500}
+</style>
+</head>
+<body>
+<header>
+<h1>FOOD MENU</h1>
+<p class="dev">थारू सेकुवा घर</p>
+</header>
+<nav aria-label="Menu sections">
+<a href="#khaja">Khaja Set</a><a href="#curry">Curry</a><a href="#tharu">Tharu Cuisine</a><a href="#snacks">Snacks</a><a href="#beverages">Beverages</a>
+</nav>
+<main id="menu"></main>
+<footer><a href="tel:+9779845213449">+977 9845213449</a></footer>
+<script>
+var M=[
+["khaja","KHAJA SET",[["Chicken Khaja Set","Rs. 350"],["Buff Khaja Set","Rs. 350"],["Veg Khaja Set","Rs. 250"],["Tharu Sekuwa Ghar Khaja Set","Rs. 1025"]],"(Naan 3 piece, Duck Curry, Chicken Sekuwa, Aalu Jira, Bhatamas Sadheko, Green Salad, Papad, 500 ml Coke)"],
+["curry","CURRY",[["Chicken Curry","Rs. 350"],["Duck Curry","Rs. 350"],["Fish Curry","RS. 350"],["Veg Curry","Rs. 250"],["Paneer Curry","Rs. 250"]]],
+["tharu","THARU CUISINE",[["Gongi","Rs. 100"],["Chichar","Rs. 100"]]],
+["snacks","SNACKS",[["Chicken Sekuwa","Rs. 100"],["Pork Sekuwa","RS. 150"],["Fish Fry","Rs. 150"],["Duck Choila(Bone)","Rs. 450"],["Duck Choila (Boneless)","Rs. 550"],["Buff Choila","Rs. 350"],["Buff Sukuti","Rs. 280"],["Buff Sadheko","Rs. 250"],["Bhatamas Sadheko","Rs. 100"],["Peanut Sadheko","Rs. 150"],["Aalu Jira","Rs. 150"],["Fry Papad","Rs. 80"],["Dry Papad","Rs. 50"],["Green Salad","Rs. 150"]]],
+["beverages","BEVERAGES",[["Tuborg Beer","Rs. 550"],["San Miguel Beer Bottle","Rs. 550"],["San Miguel Beer Cane","Rs. 475"],["Carlsberg Beer Bottle","Rs 600"],["Carlsberg Beer Cane","Rs. 500"],["Gorkha Beer","Rs. 450"],["Gorkha Small Beer","Rs. 250"],["Xtreme Energy Drink","Rs. 150"],["Red Bull","Rs. 150"],["Coke Bottle","Rs. 60"]]]
+];
+var h="";
+M.forEach(function(s){
+h+='<section id="'+s[0]+'"><h2>'+s[1]+'</h2>';
+if(s[3])h+='';
+s[2].forEach(function(i){h+='<div class="row"><span>'+i[0]+'</span><span>'+i[1]+'</span></div>'});
+if(s[3])h+='<p class="note">'+s[3]+'</p>';
+h+='</section>';
+});
+document.getElementById("menu").innerHTML=h;
+</script>
+</body>
+</html>
